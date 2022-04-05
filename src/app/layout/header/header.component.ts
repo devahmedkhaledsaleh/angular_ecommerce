@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ICategory } from '../../models/i-category';
 import { IProduct } from '../../models/i-product';
@@ -14,7 +14,7 @@ import { WishlistService } from '../../user/services/wishlist.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterContentChecked {
   categoriesList: ICategory[];
   countCartItem: number;
   userInfo: any = "";
@@ -33,6 +33,13 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // if (localStorage.getItem('userInfo')) {
+    //   this.userInfo = localStorage.getItem('userInfo');
+    //   this.userInfo = JSON.parse(this.userInfo);
+    // }
+  }
+
+  ngAfterContentChecked(): void {
     if (localStorage.getItem('userInfo')) {
       this.userInfo = localStorage.getItem('userInfo');
       this.userInfo = JSON.parse(this.userInfo);
