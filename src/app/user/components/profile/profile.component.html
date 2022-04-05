@@ -1,0 +1,46 @@
+<section class="page-title">
+  <div class="container">
+    <div class="page-title-content">
+      <h2>Personal Info</h2>
+      <ul class="list-unstyled">
+        <li>
+          <a>Home</a>
+        </li>
+        <li>Personal Info</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="holder">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="list-group">
+          <a routerLink="/profile" class="list-group-item list-group-item-action" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            Personal Info
+          </a>
+          <a routerLink="orders" class="list-group-item list-group-item-action" routerLinkActive="active">My Orders</a>
+        </div>
+      </div>
+
+      <div class="col-md-8 aside">
+        <div class="row vert-margin">
+          <div class="col-sm-12">
+            <div class="card">
+                <router-outlet></router-outlet>
+              <!-- <div class="card-body">
+                <h3>Personal Info</h3>
+                <p>
+                  <b>Fist Name:</b> {{ userInfo.fname }}<br />
+                  <b>Last Name:</b> {{ userInfo.lname }}<br />
+                  <b>Email Address:</b> {{ userInfo.email }}<br />
+                  <b>Phone:</b>
+                </p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

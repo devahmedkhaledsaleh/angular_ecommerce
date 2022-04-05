@@ -1,0 +1,47 @@
+<div class="card-body">
+  <h3>Orders Info</h3>
+  <!-- <table border="1">
+      <tr>
+        <td>Total Price</td>
+        <td>Total Price</td>
+      </tr>
+      <tr *ngFor="let usersOrderInfo of userOrders.data">
+        <td>{{usersOrderInfo.totalPrice}}</td>
+        <td>{{usersOrderInfo | json}}</td>
+      </tr>
+    </table> -->
+  <!-- <p>
+      {{userOrders.data | json}}
+      <b>Order:</b> Order<br />
+      <b>Order:</b> Order<br />
+      <b>Order:</b>  Order<br />
+    </p> -->
+
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let userOrder of userOrders.data">
+        <td>products</td>
+        <td>
+          <table class="table table-striped">
+            <tr>
+              <td>Name</td>
+              <td>Unit Price</td>
+              <td>product Quantity</td>
+              <td>Total</td>
+            </tr>
+            <tr *ngFor="let product of userOrder.products">
+              <td>{{ product.productId.name }}</td>
+              <td>{{ product.productId.price }}</td>
+              <td>{{ product.productQuantity }}</td>
+              <td>{{ product.productId.price * product.productQuantity }}</td>
+            </tr>
+          </table>
+        </td>
+        <td>Total Order Price</td>
+        <td>{{ userOrder.totalPrice | currency }}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

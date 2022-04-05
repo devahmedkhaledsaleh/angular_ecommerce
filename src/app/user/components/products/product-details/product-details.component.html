@@ -1,0 +1,105 @@
+<!-- Start Page Banner -->
+<div class="page-title-area">
+  <div class="container">
+    <div class="page-title-content">
+      <h2>Products Details</h2>
+
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>Products Details</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- End Page Banner -->
+
+<!-- Start Products Details Area -->
+<ng-container *ngIf="currentProduct">
+  <section class="products-details-area ptb-50">
+    <div class="container">
+      <div class="products-details-desc">
+        <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6">
+            <div class="main-products-image">
+              <div class="slider slider-for">
+                <div><img [src]="currentProduct.data.image" alt="image" /></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-lg-6 col-md-6">
+            <div class="product-content content-two">
+              <h3>{{ currentProduct?.data?.name }}</h3>
+
+              <div class="price">
+                <span class="new-price">{{
+                  currentProduct?.data?.price | currency
+                }}</span>
+              </div>
+              <p>{{ currentProduct?.data?.name }}</p>
+
+              <ul class="products-info">
+                <li><span>Availability:</span> <a>In stock</a></li>
+              </ul>
+
+              <div class="product-add-to-cart">
+                <button
+                  (click)="addToCart(currentProduct)"
+                  class="default-btn mr-4"
+                >
+                  <i class="flaticon-shopping-cart"></i>
+                  Add to cart
+                  <span></span>
+                </button>
+                <button
+                  (click)="addToWishlist(currentProduct)"
+                  class="default-btn mr-4"
+                >
+                  <i class="flaticon-heart"></i>
+                  Wishlist
+                  <span></span>
+                </button>
+                <button
+                  (click)="addToCompare(currentProduct)"
+                  class="default-btn"
+                >
+                  <i class="fa fa-exchange"></i>
+                  Add to Compare
+                  <span></span>
+                </button>
+              </div>
+
+              <div class="products-share">
+                <ul class="social">
+                  <li><span>Share:</span></li>
+                  <li>
+                    <a  
+                      ><i class="bx bxl-facebook"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a 
+                      ><i class="bx bxl-twitter"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a 
+                      ><i class="bx bxl-linkedin"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a 
+                      ><i class="bx bxl-instagram"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<!-- End Products Details Area -->
