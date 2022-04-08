@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  errorMeg: string;
+
   onSubmit() {
     const observer = {
       next: (res: any) => {
@@ -49,7 +51,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
         
       },
-      error: (err: Error) => console.log(err.message),  
+      error: (err:any) => this.errorMeg = err.error.message,  
+      
     };
 
     this.authenticationService
